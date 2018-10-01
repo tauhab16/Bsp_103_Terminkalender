@@ -25,8 +25,8 @@ private ArrayList <Appointment> termin = new ArrayList();
         termin.remove(t);
         this.fireContentsChanged(t, 0, 0);
     }
-    public void sort()
-    {
-    Collections.sort(termin);
-    }
+//    public void sort()
+//    {
+//    Collections.sort(termin);
+//    }
 }

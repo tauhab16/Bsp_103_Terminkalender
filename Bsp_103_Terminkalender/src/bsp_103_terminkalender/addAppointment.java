@@ -13,14 +13,18 @@ import java.time.format.DateTimeFormatter;
  * @author User
  */
 public class addAppointment extends javax.swing.JDialog {
-private boolean Ok=false;
-private Termin termin=null;
-    public boolean isOk(){
+
+    private boolean Ok = false;
+    private Appointment termin;
+
+    public boolean isOk() {
         return Ok;
     }
-     public Termin getTermin(){
+
+    public Appointment getTermin() {
         return termin;
     }
+
     /**
      * Creates new form addAppointment
      */
@@ -170,18 +174,48 @@ private Termin termin=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void BTaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTaddActionPerformed
-        String datum = String.format("%s.%s.%s %s:%s",TFtag.getText(),TFmonat.getText(),TFjahr.getText(),TFstunde.getText(),TFminute.getText());
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-        LocalDateTime ld = LocalDateTime.parse(datum, dtf);
-        termin = new Termin(ld,TFtext.getText());
         
-        Ok=true;
+        if(Integer.parseInt(TFtag.getText())>0&&Integer.parseInt(TFtag.getText())<=10)
+        {
+            TFtag.setText("0"+TFtag.getText());
+        }
+        if(Integer.parseInt(TFstunde.getText())>0&&Integer.parseInt(TFstunde.getText())<=10)
+        {
+            TFstunde.setText("0"+TFstunde.getText());
+        }
+        String datum = String.format("%s.%s.%s %s:%s", TFtag.getText(), TFmonat.getText(), TFjahr.getText(), TFstunde.getText(), TFminute.getText());
+        LocalDateTime ld=null;
+         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+             ld = LocalDateTime.parse(datum, dtf);
+        try {
+           
+        } catch (Exception ex) {
+//            try {
+//                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:m");
+//                 ld = LocalDateTime.parse(datum, dtf);
+//            } catch (Exception ex2) {
+//                try {
+//                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:m");
+//                     ld = LocalDateTime.parse(datum, dtf);
+//                } catch (Exception ex3) {
+//                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm");
+//                     ld = LocalDateTime.parse(datum, dtf);
+//                }
+//            }
         
+        }
+
+        termin = new Appointment(ld, TFtext.getText());
+                System.out.println(ld);
+                System.out.println(TFtext.getText());
+
+        Ok = true;
+
         this.dispose();
     }//GEN-LAST:event_BTaddActionPerformed
 
     private void BTdisposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTdisposeActionPerformed
-         Ok=false;
+        Ok = false;
         this.dispose();
     }//GEN-LAST:event_BTdisposeActionPerformed
 

@@ -11,15 +11,14 @@ package bsp_103_terminkalender;
  */
 public class AppointmentGUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AppointmentGUI
-     */
+    private AppointmentModell app = new AppointmentModell();
     public AppointmentGUI() {
         initComponents();
        menuBearbeiten.setText("Bearbeiten");
        menuHinzufuegen.setText("hinzufügen");
        menuentfernen.setText("Entfernen");
        loadData();
+       terminListe.setModel(app);
     }
 
     /**
@@ -37,7 +36,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
         menuBearbeiten = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        terminListe = new javax.swing.JList<>();
 
         menuHinzufuegen.setText("jMenuItem1");
         menuHinzufuegen.addActionListener(new java.awt.event.ActionListener() {
@@ -60,15 +59,15 @@ public class AppointmentGUI extends javax.swing.JFrame {
         jLabel1.setText("Termine");
         getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        terminListe.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList1.setComponentPopupMenu(popup);
-        jList1.setMaximumSize(new java.awt.Dimension(10, 20));
-        jList1.setMinimumSize(new java.awt.Dimension(10, 10));
-        jScrollPane1.setViewportView(jList1);
+        terminListe.setComponentPopupMenu(popup);
+        terminListe.setMaximumSize(new java.awt.Dimension(10, 20));
+        terminListe.setMinimumSize(new java.awt.Dimension(10, 10));
+        jScrollPane1.setViewportView(terminListe);
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.PAGE_END);
 
@@ -78,16 +77,15 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHinzufuegenActionPerformed
-<<<<<<< HEAD
+
        addAppointment dialog = new addAppointment(this,true);
        dialog.setVisible(true);
        if(dialog.isOk()){
-           Termin b =dialog.getTermin();
-          
+           Appointment b =dialog.getTermin();
+           System.out.println(b);
+          app.add(b);
         }
-=======
-        // TODO add your handling code here:
->>>>>>> 16258a95e783267423cda78674c5c589e9a5c249
+
     }//GEN-LAST:event_menuHinzufuegenActionPerformed
 
     /**
@@ -127,12 +125,12 @@ public class AppointmentGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuBearbeiten;
     private javax.swing.JMenuItem menuHinzufuegen;
     private javax.swing.JMenuItem menuentfernen;
     private javax.swing.JPopupMenu popup;
+    private javax.swing.JList<String> terminListe;
     // End of variables declaration//GEN-END:variables
 
     private void saveData() {

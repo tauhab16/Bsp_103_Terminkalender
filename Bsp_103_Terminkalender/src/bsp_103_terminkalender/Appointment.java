@@ -5,45 +5,36 @@
  */
 package bsp_103_terminkalender;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 /**
  *
- * @author Jörg
+ * @author User
  */
 public class Appointment {
-    private LocalDate date;
-    private LocalTime time;
+    private LocalDateTime datum;
     private String text;
 
-    public Appointment(LocalDate date, LocalTime time, String text) {
-        this.date = date;
-        this.time = time;
+    public Appointment(LocalDateTime datum, String text) {
+        this.datum = datum;
         this.text = text;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
+    public LocalDateTime getDatum() {
+        return datum;
     }
 
     public String getText() {
         return text;
     }
 
+    public void setDatum(LocalDateTime datum) {
+        this.datum = datum;
+    }
+
     public void setText(String text) {
         this.text = text;
     }
+    
+    
 }
