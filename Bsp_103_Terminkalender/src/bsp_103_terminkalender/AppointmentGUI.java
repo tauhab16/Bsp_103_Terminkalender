@@ -40,6 +40,11 @@ public class AppointmentGUI extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
 
         menuHinzufuegen.setText("jMenuItem1");
+        menuHinzufuegen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHinzufuegenActionPerformed(evt);
+            }
+        });
         popup.add(menuHinzufuegen);
 
         menuentfernen.setText("jMenuItem2");
@@ -71,6 +76,15 @@ public class AppointmentGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHinzufuegenActionPerformed
+       addAppointment dialog = new addAppointment(this,true);
+       dialog.setVisible(true);
+       if(dialog.isOk()){
+           Termin b =dialog.getTermin();
+          
+        }
+    }//GEN-LAST:event_menuHinzufuegenActionPerformed
 
     /**
      * @param args the command line arguments
