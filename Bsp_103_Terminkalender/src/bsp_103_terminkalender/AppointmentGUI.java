@@ -19,7 +19,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
        menuBearbeiten.setText("Bearbeiten");
        menuHinzufuegen.setText("hinzufügen");
        menuentfernen.setText("Entfernen");
-
+       loadData();
     }
 
     /**
@@ -78,12 +78,16 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHinzufuegenActionPerformed
+<<<<<<< HEAD
        addAppointment dialog = new addAppointment(this,true);
        dialog.setVisible(true);
        if(dialog.isOk()){
            Termin b =dialog.getTermin();
           
         }
+=======
+        // TODO add your handling code here:
+>>>>>>> 16258a95e783267423cda78674c5c589e9a5c249
     }//GEN-LAST:event_menuHinzufuegenActionPerformed
 
     /**
@@ -130,4 +134,12 @@ public class AppointmentGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuentfernen;
     private javax.swing.JPopupMenu popup;
     // End of variables declaration//GEN-END:variables
+
+    private void saveData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void loadData() {
+        
+    }
 }
