@@ -19,7 +19,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
        menuBearbeiten.setText("Bearbeiten");
        menuHinzufuegen.setText("hinzufügen");
        menuentfernen.setText("Entfernen");
-
+       loadData();
     }
 
     /**
@@ -40,6 +40,11 @@ public class AppointmentGUI extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
 
         menuHinzufuegen.setText("jMenuItem1");
+        menuHinzufuegen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuHinzufuegenActionPerformed(evt);
+            }
+        });
         popup.add(menuHinzufuegen);
 
         menuentfernen.setText("jMenuItem2");
@@ -71,6 +76,10 @@ public class AppointmentGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHinzufuegenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuHinzufuegenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,4 +125,12 @@ public class AppointmentGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuentfernen;
     private javax.swing.JPopupMenu popup;
     // End of variables declaration//GEN-END:variables
+
+    private void saveData() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void loadData() {
+        
+    }
 }
