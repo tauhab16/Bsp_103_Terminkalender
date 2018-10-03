@@ -6,6 +6,7 @@
 package bsp_103_terminkalender;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -34,6 +35,11 @@ public class Appointment {
 
     public void setText(String text) {
         this.text = text;
+    }
+    public String toString(){
+       DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm yyyy.MM.dd EEEE");
+       String back1 = datum.format(dtf);
+        return String.format("%s - %s ",back1,text);
     }
     
     
