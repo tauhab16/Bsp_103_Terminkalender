@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author User
  */
-public class Appointment {
+public class Appointment implements Comparable<Appointment>{
     private LocalDateTime datum;
     private String text;
 
@@ -41,6 +41,16 @@ public class Appointment {
        String back1 = datum.format(dtf);
         return String.format("%s - %s ",back1,text);
     }
+
+    
+ 
+    @Override
+    public int compareTo(Appointment app) {
+         return this.datum.compareTo(app.getDatum());
+    }
+
+ 
+   
     
     
 }

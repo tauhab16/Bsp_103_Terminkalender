@@ -7,6 +7,7 @@ package bsp_103_terminkalender;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -173,47 +174,57 @@ public class addAppointment extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     // <editor-fold defaultstate="collapsed" desc="add">      
     private void BTaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTaddActionPerformed
-        
-        if(Integer.parseInt(TFtag.getText())>0&&Integer.parseInt(TFtag.getText())<=10)
+         LocalDateTime ld=null;
+       
+        try{
+            
+            
+        if(Integer.parseInt(TFmonat.getText())>0 && Integer.parseInt(TFmonat.getText())<=10)
+        {
+            TFmonat.setText("0"+TFmonat.getText());
+        }
+        if(Integer.parseInt(TFtag.getText())>0 && Integer.parseInt(TFtag.getText())<=10)
         {
             TFtag.setText("0"+TFtag.getText());
         }
+        
+        
         if(Integer.parseInt(TFstunde.getText())>0&&Integer.parseInt(TFstunde.getText())<=10)
         {
             TFstunde.setText("0"+TFstunde.getText());
         }
-        String datum = String.format("%s.%s.%s %s:%s", TFtag.getText(), TFmonat.getText(), TFjahr.getText(), TFstunde.getText(), TFminute.getText());
-        LocalDateTime ld=null;
+         if(Integer.parseInt(TFminute.getText())>0 && Integer.parseInt(TFminute.getText())<=10)
+        {
+            TFminute.setText("0"+TFminute.getText());
+        }
+        
+         
+         
+         String datum = String.format("%s.%s.%s %s:%s", TFtag.getText(), TFmonat.getText(), TFjahr.getText(), TFstunde.getText(), TFminute.getText());
+       
          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
              ld = LocalDateTime.parse(datum, dtf);
-        try {
+             
+         termin = new Appointment(ld, TFtext.getText());
+                System.out.println(ld);
+                System.out.println(TFtext.getText());
+        Ok = true;
+        this.dispose();
            
-        } catch (Exception ex) {
-//            try {
-//                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:m");
-//                 ld = LocalDateTime.parse(datum, dtf);
-//            } catch (Exception ex2) {
-//                try {
-//                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:m");
-//                     ld = LocalDateTime.parse(datum, dtf);
-//                } catch (Exception ex3) {
-//                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm");
-//                     ld = LocalDateTime.parse(datum, dtf);
-//                }
-//            }
+        } 
+        
+        
+        catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,"Bitte was ordentliches thx");
+                Ok=false; 
         
         }
 
-        termin = new Appointment(ld, TFtext.getText());
-                System.out.println(ld);
-                System.out.println(TFtext.getText());
-
-        Ok = true;
-
-        this.dispose();
+       
     }//GEN-LAST:event_BTaddActionPerformed
-
+// </editor-fold>
     private void BTdisposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTdisposeActionPerformed
         Ok = false;
         this.dispose();

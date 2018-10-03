@@ -6,6 +6,7 @@ import javax.swing.AbstractListModel;
 
 public class AppointmentModell extends AbstractListModel{
 private ArrayList <Appointment> termin = new ArrayList();
+    sortByDate sbd = new sortByDate();
     @Override
     public int getSize() {
         return termin.size();
@@ -29,4 +30,9 @@ private ArrayList <Appointment> termin = new ArrayList();
 //    {
 //    Collections.sort(termin);
 //    }
+
+    void sort(sortByDate sortByDate) {
+        Collections.sort(termin,sbd);
+        fireContentsChanged(this, 0, termin.size()-1);
+    }
 }

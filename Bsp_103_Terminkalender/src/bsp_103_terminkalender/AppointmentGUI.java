@@ -37,6 +37,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         terminListe = new javax.swing.JList<>();
+        jButton1 = new javax.swing.JButton();
 
         menuHinzufuegen.setText("jMenuItem1");
         menuHinzufuegen.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +72,14 @@ public class AppointmentGUI extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, java.awt.BorderLayout.PAGE_END);
 
+        jButton1.setText("sort");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, java.awt.BorderLayout.LINE_END);
+
         getAccessibleContext().setAccessibleDescription("");
 
         pack();
@@ -87,6 +96,10 @@ public class AppointmentGUI extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_menuHinzufuegenActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        app.sort(new sortByDate());
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,6 +137,7 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem menuBearbeiten;
