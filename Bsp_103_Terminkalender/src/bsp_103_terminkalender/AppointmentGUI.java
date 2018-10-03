@@ -1,9 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package bsp_103_terminkalender;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -67,6 +70,11 @@ public class AppointmentGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Termin-Kalender");
         setMinimumSize(new java.awt.Dimension(38, 80));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                saveDatra(evt);
+            }
+        });
 
         jLabel1.setText("Termine");
         getContentPane().add(jLabel1, java.awt.BorderLayout.CENTER);
@@ -106,18 +114,13 @@ public class AppointmentGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_menuHinzufuegenActionPerformed
 
-<<<<<<< HEAD
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         app.sort(new sortByDate());
     }//GEN-LAST:event_jButton1ActionPerformed
-=======
-    private void menuentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuentfernenActionPerformed
 
-        try {
-            app.remove((Appointment) app.getElementAt(terminListe.getSelectedIndex()));
-        } catch (Exception ex) {
-            System.out.println("Ups!");
-        }
+    private void menuentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuentfernenActionPerformed
+        app.remove((Appointment) app.getElementAt(terminListe.getSelectedIndex()));
     }//GEN-LAST:event_menuentfernenActionPerformed
 
     private void menuBearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBearbeitenActionPerformed
@@ -132,7 +135,10 @@ public class AppointmentGUI extends javax.swing.JFrame {
             app.change(b, terminListe.getSelectedIndex());
         }
     }//GEN-LAST:event_menuBearbeitenActionPerformed
->>>>>>> 7cd1e1bee45566f28fc723e2e0b22cbcf2cc3f87
+
+    private void saveDatra(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_saveDatra
+        saveData();
+    }//GEN-LAST:event_saveDatra
 
     /**
      * @param args the command line arguments
@@ -181,10 +187,20 @@ public class AppointmentGUI extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void saveData() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        File f = new File("Text.bin");
+        try {
+            app.save(f);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
     }
 
     private void loadData() {
-
+        File f = new File("Text.bin");
+        try {
+            app.load(f);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
     }
 }

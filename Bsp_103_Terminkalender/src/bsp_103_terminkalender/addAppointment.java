@@ -14,23 +14,23 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class addAppointment extends javax.swing.JDialog {
-    
+
     private boolean Ok = false;
     private Appointment termin;
 
     public boolean isOk() {
         return Ok;
     }
-    public void add()
-    {
+
+    public void add() {
         BTadd.setText("add");
     }
-    public Appointment getTermin()
-    {
+
+    public Appointment getTermin() {
         return termin;
     }
-    public void setTermin(Appointment t)
-    {
+
+    public void setTermin(Appointment t) {
         BTadd.setText("change");
         termin = t;
         TFtag.setText(String.valueOf(termin.getDatum().getDayOfMonth()));
@@ -40,6 +40,7 @@ public class addAppointment extends javax.swing.JDialog {
         TFstunde.setText(String.valueOf(termin.getDatum().getHour()));
         TFtext.setText(termin.getText());
     }
+
     /**
      * Creates new form addAppointment
      */
@@ -115,120 +116,110 @@ public class addAppointment extends javax.swing.JDialog {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TFtext, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TFminute, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addGap(36, 36, 36)
-                            .addComponent(TFtag, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TFmonat, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(34, 34, 34)
-                                .addComponent(TFjahr, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(TFstunde, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BTadd, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BTdispose)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel5)
+                                                        .addComponent(jLabel6))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(TFtext, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(TFminute, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel1)
+                                                        .addGap(36, 36, 36)
+                                                        .addComponent(TFtag, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jLabel2)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                .addComponent(TFmonat, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                                .addComponent(jLabel4)
+                                                                .addGap(34, 34, 34)
+                                                                .addComponent(TFjahr, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel3)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(TFstunde, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(BTadd, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(BTdispose)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(TFtag))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(TFmonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(TFjahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(7, 7, 7)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(TFstunde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(TFminute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(TFtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BTdispose)
-                    .addComponent(BTadd))
-                .addGap(13, 13, 13))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(TFtag))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(TFmonat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel4)
+                                        .addComponent(TFjahr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(7, 7, 7)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel3)
+                                        .addComponent(TFstunde, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel5)
+                                        .addComponent(TFminute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel6)
+                                        .addComponent(TFtext, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(BTdispose)
+                                        .addComponent(BTadd))
+                                .addGap(13, 13, 13))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-     // <editor-fold defaultstate="collapsed" desc="add">      
+    // <editor-fold defaultstate="collapsed" desc="add">      
     private void BTaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTaddActionPerformed
-         LocalDateTime ld=null;
-       
-        try{
-            
-            
-        if(Integer.parseInt(TFmonat.getText())>0 && Integer.parseInt(TFmonat.getText())<=10)
-        {
-            TFmonat.setText("0"+TFmonat.getText());
-        }
-        if(Integer.parseInt(TFtag.getText())>0 && Integer.parseInt(TFtag.getText())<=10)
-        {
-            TFtag.setText("0"+TFtag.getText());
-        }
-        
-        
-        if(Integer.parseInt(TFstunde.getText())>0&&Integer.parseInt(TFstunde.getText())<=10)
-        {
-            TFstunde.setText("0"+TFstunde.getText());
-        }
-         if(Integer.parseInt(TFminute.getText())>0 && Integer.parseInt(TFminute.getText())<=10)
-        {
-            TFminute.setText("0"+TFminute.getText());
-        }
-        
-         
-         
-         String datum = String.format("%s.%s.%s %s:%s", TFtag.getText(), TFmonat.getText(), TFjahr.getText(), TFstunde.getText(), TFminute.getText());
-       
-         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-             ld = LocalDateTime.parse(datum, dtf);
-<<<<<<< HEAD
-             
-         termin = new Appointment(ld, TFtext.getText());
-                System.out.println(ld);
-                System.out.println(TFtext.getText());
-=======
+        LocalDateTime ld = null;
+
         try {
-           
-        } catch (Exception ex) {
+
+            if (Integer.parseInt(TFmonat.getText()) > 0 && Integer.parseInt(TFmonat.getText()) <= 10) {
+                TFmonat.setText("0" + TFmonat.getText());
+            }
+            if (Integer.parseInt(TFtag.getText()) > 0 && Integer.parseInt(TFtag.getText()) <= 10) {
+                TFtag.setText("0" + TFtag.getText());
+            }
+
+            if (Integer.parseInt(TFstunde.getText()) > 0 && Integer.parseInt(TFstunde.getText()) <= 10) {
+                TFstunde.setText("0" + TFstunde.getText());
+            }
+            if (Integer.parseInt(TFminute.getText()) > 0 && Integer.parseInt(TFminute.getText()) <= 10) {
+                TFminute.setText("0" + TFminute.getText());
+            }
+
+            String datum = String.format("%s.%s.%s %s:%s", TFtag.getText(), TFmonat.getText(), TFjahr.getText(), TFstunde.getText(), TFminute.getText());
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+            ld = LocalDateTime.parse(datum, dtf);
+
+            termin = new Appointment(ld, TFtext.getText());
+            System.out.println(ld);
+            System.out.println(TFtext.getText());
+            try {
+
+            } catch (Exception ex) {
 //            try {
 //                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:m");
 //                 ld = LocalDateTime.parse(datum, dtf);
@@ -241,26 +232,21 @@ public class addAppointment extends javax.swing.JDialog {
 //                     ld = LocalDateTime.parse(datum, dtf);
 //                }
 //            }
-        
+
+            }
+            termin = new Appointment(ld, TFtext.getText());
+            Ok = true;
+            this.dispose();
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Bitte was ordentliches thx");
+            Ok = false;
+
         }
 
-        termin = new Appointment(ld, TFtext.getText());
->>>>>>> 7cd1e1bee45566f28fc723e2e0b22cbcf2cc3f87
-        Ok = true;
-        this.dispose();
-           
-        } 
-        
-        
-        catch (Exception ex) {
-                JOptionPane.showMessageDialog(null,"Bitte was ordentliches thx");
-                Ok=false; 
-        
-        }
-
-       
     }//GEN-LAST:event_BTaddActionPerformed
 // </editor-fold>
+
     private void BTdisposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTdisposeActionPerformed
         Ok = false;
         this.dispose();
