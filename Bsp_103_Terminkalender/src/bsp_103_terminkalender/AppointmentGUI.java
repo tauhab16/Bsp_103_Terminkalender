@@ -12,13 +12,14 @@ package bsp_103_terminkalender;
 public class AppointmentGUI extends javax.swing.JFrame {
 
     private AppointmentModell app = new AppointmentModell();
+
     public AppointmentGUI() {
         initComponents();
-       menuBearbeiten.setText("Bearbeiten");
-       menuHinzufuegen.setText("hinzufügen");
-       menuentfernen.setText("Entfernen");
-       loadData();
-       terminListe.setModel(app);
+        menuBearbeiten.setText("Bearbeiten");
+        menuHinzufuegen.setText("hinzufügen");
+        menuentfernen.setText("Entfernen");
+        loadData();
+        terminListe.setModel(app);
     }
 
     /**
@@ -47,9 +48,19 @@ public class AppointmentGUI extends javax.swing.JFrame {
         popup.add(menuHinzufuegen);
 
         menuentfernen.setText("jMenuItem2");
+        menuentfernen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuentfernenActionPerformed(evt);
+            }
+        });
         popup.add(menuentfernen);
 
         menuBearbeiten.setText("jMenuItem3");
+        menuBearbeiten.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuBearbeitenActionPerformed(evt);
+            }
+        });
         popup.add(menuBearbeiten);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,16 +88,36 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuHinzufuegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuHinzufuegenActionPerformed
-
-       addAppointment dialog = new addAppointment(this,true);
-       dialog.setVisible(true);
-       if(dialog.isOk()){
-           Appointment b =dialog.getTermin();
-           System.out.println(b);
-          app.add(b);
+        addAppointment dialog = new addAppointment(this, true);
+        dialog.setVisible(true);
+        if (dialog.isOk()) {
+            Appointment b = dialog.getTermin();
+            System.out.println(b);
+            app.add(b);
         }
-
     }//GEN-LAST:event_menuHinzufuegenActionPerformed
+
+    private void menuentfernenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuentfernenActionPerformed
+
+        try {
+            app.remove((Appointment) app.getElementAt(terminListe.getSelectedIndex()));
+        } catch (Exception ex) {
+            System.out.println("Ups!");
+        }
+    }//GEN-LAST:event_menuentfernenActionPerformed
+
+    private void menuBearbeitenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuBearbeitenActionPerformed
+        addAppointment dialog = new addAppointment(this, true);
+        Appointment helper = (Appointment) app.getElementAt(terminListe.getSelectedIndex());
+        dialog.setTermin((Appointment) app.getElementAt(terminListe.getSelectedIndex()));
+        dialog.setVisible(true);
+
+        if (dialog.isOk()) {
+            Appointment b = dialog.getTermin();
+            app.remove(helper);
+            app.change(b, terminListe.getSelectedIndex());
+        }
+    }//GEN-LAST:event_menuBearbeitenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,6 +169,6 @@ public class AppointmentGUI extends javax.swing.JFrame {
     }
 
     private void loadData() {
-        
+
     }
 }

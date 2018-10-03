@@ -13,18 +13,32 @@ import java.time.format.DateTimeFormatter;
  * @author User
  */
 public class addAppointment extends javax.swing.JDialog {
-
+    
     private boolean Ok = false;
     private Appointment termin;
 
     public boolean isOk() {
         return Ok;
     }
-
-    public Appointment getTermin() {
+    public void add()
+    {
+        BTadd.setText("add");
+    }
+    public Appointment getTermin()
+    {
         return termin;
     }
-
+    public void setTermin(Appointment t)
+    {
+        BTadd.setText("change");
+        termin = t;
+        TFtag.setText(String.valueOf(termin.getDatum().getDayOfMonth()));
+        TFjahr.setText(String.valueOf(termin.getDatum().getYear()));
+        TFminute.setText(String.valueOf(termin.getDatum().getMinute()));
+        TFmonat.setText(String.valueOf(termin.getDatum().getMonthValue()));
+        TFstunde.setText(String.valueOf(termin.getDatum().getHour()));
+        TFtext.setText(termin.getText());
+    }
     /**
      * Creates new form addAppointment
      */
@@ -206,11 +220,7 @@ public class addAppointment extends javax.swing.JDialog {
         }
 
         termin = new Appointment(ld, TFtext.getText());
-                System.out.println(ld);
-                System.out.println(TFtext.getText());
-
         Ok = true;
-
         this.dispose();
     }//GEN-LAST:event_BTaddActionPerformed
 
@@ -277,4 +287,5 @@ public class addAppointment extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
 }
