@@ -14,18 +14,32 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class addAppointment extends javax.swing.JDialog {
-
+    
     private boolean Ok = false;
     private Appointment termin;
 
     public boolean isOk() {
         return Ok;
     }
-
-    public Appointment getTermin() {
+    public void add()
+    {
+        BTadd.setText("add");
+    }
+    public Appointment getTermin()
+    {
         return termin;
     }
-
+    public void setTermin(Appointment t)
+    {
+        BTadd.setText("change");
+        termin = t;
+        TFtag.setText(String.valueOf(termin.getDatum().getDayOfMonth()));
+        TFjahr.setText(String.valueOf(termin.getDatum().getYear()));
+        TFminute.setText(String.valueOf(termin.getDatum().getMinute()));
+        TFmonat.setText(String.valueOf(termin.getDatum().getMonthValue()));
+        TFstunde.setText(String.valueOf(termin.getDatum().getHour()));
+        TFtext.setText(termin.getText());
+    }
     /**
      * Creates new form addAppointment
      */
@@ -206,10 +220,32 @@ public class addAppointment extends javax.swing.JDialog {
        
          DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
              ld = LocalDateTime.parse(datum, dtf);
+<<<<<<< HEAD
              
          termin = new Appointment(ld, TFtext.getText());
                 System.out.println(ld);
                 System.out.println(TFtext.getText());
+=======
+        try {
+           
+        } catch (Exception ex) {
+//            try {
+//                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:m");
+//                 ld = LocalDateTime.parse(datum, dtf);
+//            } catch (Exception ex2) {
+//                try {
+//                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:m");
+//                     ld = LocalDateTime.parse(datum, dtf);
+//                } catch (Exception ex3) {
+//                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd.MM.yyyy H:mm");
+//                     ld = LocalDateTime.parse(datum, dtf);
+//                }
+//            }
+        
+        }
+
+        termin = new Appointment(ld, TFtext.getText());
+>>>>>>> 7cd1e1bee45566f28fc723e2e0b22cbcf2cc3f87
         Ok = true;
         this.dispose();
            
@@ -288,4 +324,5 @@ public class addAppointment extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
 }
